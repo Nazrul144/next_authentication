@@ -28,7 +28,7 @@ const Navbar = () => {
                         navlinks?.map((navlink)=> <Link className={`${pathName === navlink.path ? "font-bold text-purple-700" : ""}`} key={navlink.path} href={navlink.path}>{navlink.title}</Link>)
                     }
                     </div>
-                    <div>Login</div>
+                   <Link href={'/login'}>Login</Link>
             </div>
         </div>
     );
