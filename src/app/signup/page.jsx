@@ -1,13 +1,24 @@
+'use client'
 import Link from "next/link";
 import React from "react";
 
 const Page = () => {
+  const handleSignUp = (event)=>{
+    event.preventDefault()
+    const newUsers = {
+      username : event.target.username.value,
+      email : event.target.email.value,
+      password: event.target.password.value
+    }
+
+  }
+
   return (
     <div>
       <div className="w-96 border-[1px] border-gray-300 shadow-xl rounded-lg mx-auto mt-4 lg:mt-20">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
           <h1 className="text-2xl font-bold text-center">Sign Up</h1>
-          <form noValidate="" action="" className="space-y-6">
+          <form onSubmit={handleSignUp} noValidate="" action="" className="space-y-6">
             <div className="space-y-1 text-sm">
               <label htmlFor="username" className="block dark:text-gray-600">
                 Username
@@ -15,6 +26,18 @@ const Page = () => {
               <input
                 type="text"
                 name="username"
+                id="username"
+                placeholder="Username"
+                className="w-full px-4 py-3 rounded-md dark:border-gray-300 border-[1px] border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              />
+            </div>
+            <div className="space-y-1 text-sm">
+              <label htmlFor="username" className="block dark:text-gray-600">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
                 id="username"
                 placeholder="Username"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 border-[1px] border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
