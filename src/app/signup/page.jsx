@@ -12,12 +12,18 @@ const Page = () => {
     };
 
     const res = await fetch("http://localhost:3000/signup/api", {
-      method: POST,
+      method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(newUser),
     });
+    if(res.status === 500){
+      alert("Email already exist!")
+    }
+    if(res){
+      alert("User created!")
+    }
   };
 
   return (
