@@ -9,12 +9,11 @@ const Page = () => {
     const handleSignIn = (event)=>{
         event.preventDefault()
        const email = event.target.email.value;
-       const password = event.target.email.value;
-
-       console.log(email, password);
-
-      
-        
+       const password = event.target.password.value;
+       
+       const res = signIn('credentials', {
+        email, password, redirect: false
+       })
     }
 
   return (

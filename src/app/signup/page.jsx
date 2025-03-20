@@ -11,6 +11,8 @@ const Page = () => {
       password: event.target.password.value,
     };
 
+    console.log("new User", newUser);
+
     const res = await fetch("http://localhost:3000/signup/api", {
       method: "POST",
       headers: {
@@ -18,11 +20,11 @@ const Page = () => {
       },
       body: JSON.stringify(newUser),
     });
-    if(res.status === 500){
-      alert("Email already exist!")
+    if (res.status === 500) {
+      alert("Email already exist!");
     }
-    if(res){
-      alert("User created!")
+    if (res) {
+      alert("User created!");
     }
   };
 
@@ -51,8 +53,8 @@ const Page = () => {
               <input
                 type="email"
                 name="email"
-                id="username"
-                placeholder="Username"
+                id="email"
+                placeholder="Email"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 border-[1px] border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
               />
             </div>
