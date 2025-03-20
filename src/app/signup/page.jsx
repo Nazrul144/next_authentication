@@ -1,17 +1,24 @@
-'use client'
+"use client";
 import Link from "next/link";
 import React from "react";
 
 const Page = () => {
-  const handleSignUp = (event)=>{
-    event.preventDefault()
-    const newUsers = {
-      username : event.target.username.value,
-      email : event.target.email.value,
-      password: event.target.password.value
-    }
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    const newUser = {
+      username: event.target.username.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
 
-  }
+    const res = await fetch("http://localhost:3000/signup/api", {
+      method: POST,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+  };
 
   return (
     <div>
