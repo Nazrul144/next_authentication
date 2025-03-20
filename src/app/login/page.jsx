@@ -1,21 +1,36 @@
+'use client'
+import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
 import React from "react";
+import { signIn } from "next-auth/react"
 
 const Page = () => {
+
+    const handleSignIn = (event)=>{
+        event.preventDefault()
+       const email = event.target.email.value;
+       const password = event.target.email.value;
+
+       console.log(email, password);
+
+      
+        
+    }
+
   return (
     <div>
       <div className="w-96 border-[1px] border-gray-300 shadow-xl rounded-lg mx-auto mt-4 lg:mt-20">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
           <h1 className="text-2xl font-bold text-center">Login</h1>
-          <form noValidate="" action="" className="space-y-6">
+          <form onSubmit={handleSignIn} noValidate="" action="" className="space-y-6">
             <div className="space-y-1 text-sm">
               <label htmlFor="username" className="block dark:text-gray-600">
-                Username
+                Email
               </label>
               <input
               
-                type="text"
-                name="username"
+                type="email"
+                name="email"
                 id="username"
                 placeholder="Username"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-300 border-[1px] border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
